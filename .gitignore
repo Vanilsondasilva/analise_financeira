@@ -1,0 +1,23 @@
+# Dados sensíveis / outputs locais
+backend/storage/
+storage/
+**/*.parquet
+**/*.csv
+**/*.xlsx
+**/*.jsonl
+
+# Logs / cache
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.DS_Store
+
+# artefatos gerados / documentação exportada
+project_documentation_*.txt
+
+backend/* copy.py
+backend/src/* copy.py
+frontend/src/**/* copy.ts
+frontend/src/**/* copy.tsx
+

@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* TEMA CLARO (Igual à imagem) */
+    --background: 210 40% 96%; /* #f1f5f9 - Cinza Executivo */
+    --foreground: 222 47% 11%; /* #0f172a - Texto Escuro */
+    
+    /* Configuração dos CARDS (Branco Puro + Borda Sutil) */
+    --card: 0 0% 100%; 
+    --card-foreground: 222 47% 11%;
+    --border: 214 32% 91%; /* #e2e8f0 */
+    
+    /* Cores de Ação (Botões) */
+    --primary: 221 83% 53%; /* #2563eb - Azul Royal */
+    --primary-foreground: 210 40% 98%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* TEMA ESCURO (Profissional) */
+    --background: 222 47% 11%; /* #0f172a */
+    --foreground: 210 40% 98%; /* #f8fafc */
+    
+    /* Configuração dos CARDS (Cinza Azulado Profundo) */
+    --card: 217 33% 17%; /* #1e293b */
+    --card-foreground: 210 40% 98%;
+    --border: 217 33% 20%; /* Borda quase invisível */
+    
+    --primary: 217 91% 60%; /* Azul mais claro para leitura */
+    --primary-foreground: 222 47% 11%;
+  }
+}
+
+/* Reset Básico */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* CAMADA DE COMPONENTES REAIS */
+@layer components {
+  
+  /* CLASSE DO CARD (Use esta classe nos seus componentes) */
+  .pro-card {
+    @apply bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] 
+           border border-[hsl(var(--border))] 
+           rounded-[var(--radius)] 
+           shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  /* CLASSE DO BOTÃO PRIMÁRIO (Funcional e Bonito) */
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]
+           px-6 py-3 rounded-lg font-bold tracking-wide
+           hover:brightness-110 active:scale-95 transition-all
+           flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20;
+  }
+
+  /* CLASSE DOS CHIPS DE FILTRO (Adicionada Agora) */
+  .filter-chip {
+    @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border transition-colors cursor-default;
+  }
+}
